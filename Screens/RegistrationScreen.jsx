@@ -1,7 +1,6 @@
 import {
   StyleSheet,
   View,
-  Image,
   ImageBackground,
   Text,
   TextInput,
@@ -11,21 +10,21 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { SvgXml } from 'react-native-svg';
+// import { SvgXml } from 'react-native-svg';
 import BgImage from '../images/registration-BG.jpg';
-// import AddIcon from '../images/add-icon.png';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { useEffect, useState } from 'react';
 
-const addIcon = `
-  <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12.5" cy="12.5" r="12" fill="white" />
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M13 6H12V12H6V13H12V19H13V13H19V12H13V6Z"
-     
-    />
-  </svg>`;
+// const addIcon = `
+//   <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+//     <circle cx="12.5" cy="12.5" r="12" fill="white" />
+//     <path
+//       fill-rule="evenodd"
+//       clip-rule="evenodd"
+//       d="M13 6H12V12H6V13H12V19H13V13H19V12H13V6Z"
+
+//     />
+//   </svg>`;
 
 const RegistrationScreen = () => {
   useEffect(() => {
@@ -94,10 +93,8 @@ const RegistrationScreen = () => {
           <View style={{ ...regStyles.formView, paddingBottom: isKeyboardShown ? 184 : 78 }}>
             <View style={regStyles.userPhoto}>
               <View style={regStyles.userPhotoPlus}>
-                {/* <Text style={{ color: '#FF6C00', fontSize: 18 }}>+</Text> */}
-                {/* <Image source={AddIcon} style={{ width: 25, height: 25 }} /> */}
-                {/* <AddIcon width="25" height="25" /> */}
-                <SvgXml xml={addIcon} width={25} height={25} stroke={'#FF6C00'} />
+                <Ionicons name="add-circle-outline" size={25} color={'#FF6C00'} />
+                {/* <SvgXml xml={addIcon} width={25} height={25} stroke={'#FF6C00'} /> */}
               </View>
             </View>
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
