@@ -14,6 +14,7 @@ import {
 import BgImage from '../images/registration-BG.jpg';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 // const addIcon = `
 //   <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,6 +41,8 @@ const RegistrationScreen = () => {
       keyboardDidHideListener.remove();
     };
   }, []);
+
+  const navigation = useNavigation();
 
   const [login, setLogin] = useState('');
   const [email, setEmail] = useState('');
@@ -160,7 +163,13 @@ const RegistrationScreen = () => {
               </TouchableOpacity>
               <TouchableOpacity accessibilityLabel="LogIn">
                 <Text style={{ color: '#1B4371', textAlign: 'center' }}>
-                  Вже є аккаунт? <Text style={{ textDecorationLine: 'underline' }}>Увійти</Text>
+                  Вже є аккаунт?{' '}
+                  <Text
+                    style={{ textDecorationLine: 'underline' }}
+                    onPress={() => navigation.navigate('Login')}
+                  >
+                    Увійти
+                  </Text>
                 </Text>
               </TouchableOpacity>
             </KeyboardAvoidingView>

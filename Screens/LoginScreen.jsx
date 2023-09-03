@@ -11,7 +11,8 @@ import {
   Platform,
 } from 'react-native';
 import BgImage from '../images/registration-BG.jpg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const LogInScreen = () => {
   useEffect(() => {
@@ -27,6 +28,8 @@ const LogInScreen = () => {
       keyboardDidHideListener.remove();
     };
   }, []);
+
+  const navigation = useNavigation();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -119,7 +122,12 @@ const LogInScreen = () => {
               <TouchableOpacity accessibilityLabel="LogIn">
                 <Text style={{ color: '#1B4371', textAlign: 'center' }}>
                   Немає аккаунту?{' '}
-                  <Text style={{ textDecorationLine: 'underline' }}>Зареєструватися</Text>
+                  <Text
+                    style={{ textDecorationLine: 'underline' }}
+                    onPress={() => navigation.navigate('Registration')}
+                  >
+                    Зареєструватися
+                  </Text>
                 </Text>
               </TouchableOpacity>
             </KeyboardAvoidingView>
