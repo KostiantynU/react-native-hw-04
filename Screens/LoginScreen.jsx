@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import BgImage from '../images/registration-BG.jpg';
 import { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const LogInScreen = () => {
   useEffect(() => {
@@ -61,11 +61,12 @@ const LogInScreen = () => {
     Keyboard.dismiss();
   };
 
-  const collectInputValues = () => {
+  const handleSubmit = () => {
     console.log(`Email: ${email},  and password: ${password}`);
     hideKeyboard();
     setEmail('');
     setPassword('');
+    navigation.navigate('PostScreen');
   };
 
   return (
@@ -114,12 +115,12 @@ const LogInScreen = () => {
               </View>
               <TouchableOpacity
                 style={logStyles.regButton}
-                accessibilityLabel="Register"
-                onPress={collectInputValues}
+                accessibilityLabel="LogIn"
+                onPress={handleSubmit}
               >
                 <Text style={logStyles.regButtonText}>Увійти</Text>
               </TouchableOpacity>
-              <TouchableOpacity accessibilityLabel="LogIn">
+              <TouchableOpacity>
                 <Text style={{ color: '#1B4371', textAlign: 'center' }}>
                   Немає аккаунту?{' '}
                   <Text

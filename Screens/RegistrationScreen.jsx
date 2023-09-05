@@ -88,7 +88,7 @@ const RegistrationScreen = () => {
     setEmail('');
     setPassword('');
   };
-
+  const test = 10;
   return (
     <TouchableWithoutFeedback onPress={hideKeyboard}>
       <View style={regStyles.container}>
@@ -166,7 +166,7 @@ const RegistrationScreen = () => {
                   Вже є аккаунт?{' '}
                   <Text
                     style={{ textDecorationLine: 'underline' }}
-                    onPress={() => navigation.navigate('Login')}
+                    onPress={() => navigation.navigate('Login', { test })}
                   >
                     Увійти
                   </Text>
