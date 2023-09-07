@@ -10,7 +10,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import BgImage from '../images/registration-BG.jpg';
+import BgImage from '../../images/registration-BG.jpg';
 import { useState, useEffect } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 

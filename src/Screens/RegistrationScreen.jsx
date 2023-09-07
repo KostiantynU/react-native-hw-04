@@ -11,7 +11,7 @@ import {
   Platform,
 } from 'react-native';
 // import { SvgXml } from 'react-native-svg';
-import BgImage from '../images/registration-BG.jpg';
+import BgImage from '../../images/registration-BG.jpg';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
