@@ -1,33 +1,14 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {
-  StyleSheet,
-  View,
-  Text,
-  StatusBar,
-  TouchableOpacity,
-  ScrollView,
-  Image,
-  FlatList,
-} from 'react-native';
+import { StyleSheet, View, Text, StatusBar, TouchableOpacity, FlatList } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import Ionicons from '@expo/vector-icons/Ionicons';
+
 import UsersListItem from '../components/usersListItem';
 import users from '../users';
-import CreatePost from './CreatePost';
-
-const Tabs = createBottomTabNavigator();
 
 const PostScreen = () => {
   return (
     <>
       <StatusBar />
       <View style={postStyles.container}>
-        <View style={postStyles.headerContainer}>
-          <Text style={postStyles.headerText}>Публікації</Text>
-          <TouchableOpacity style={postStyles.headerLogout}>
-            <Feather name="log-out" size={24} color="#DBDBDB" />
-          </TouchableOpacity>
-        </View>
         <FlatList
           style={postStyles.postsList}
           data={users}
@@ -40,23 +21,6 @@ const PostScreen = () => {
             return <UsersListItem key={user.id} user={user}></UsersListItem>;
           })}
         </ScrollView> */}
-        <Tabs.Navigator
-          screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) => {
-              let iconName;
-
-              if (route.name === 'Create') {
-                iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline';
-              } else if (route.name === 'posts') {
-                iconName = focused ? 'ios-list-box' : 'ios-list';
-              }
-              return <Ionicons name={iconName} size={size} color={color} />;
-            },
-          })}
-          tabBarOptions={{ activeTintColor: 'tomato', inactiveTintColor: 'gray' }}
-        >
-          <Tabs.Screen name="Create" component={CreatePost} />
-        </Tabs.Navigator>
       </View>
     </>
   );

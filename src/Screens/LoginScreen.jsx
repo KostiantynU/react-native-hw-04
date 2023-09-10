@@ -66,7 +66,7 @@ const LogInScreen = () => {
     hideKeyboard();
     setEmail('');
     setPassword('');
-    navigation.navigate('PostScreen');
+    navigation.navigate('Home');
   };
 
   return (
